@@ -1,0 +1,12 @@
+name: HOLA MUNDO
+
+on: 
+  push:
+
+jobs:
+  uno:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje
+        run: echo "hola mundo -- 20211036"
