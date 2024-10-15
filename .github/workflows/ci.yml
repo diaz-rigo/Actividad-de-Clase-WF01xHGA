@@ -1,12 +1,33 @@
-name: HOLA MUNDO
+name: Hola Mundo
 
 on: 
   push:
+  pull_request:
 
 jobs:
   uno:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Mostrar mensaje
-        run: echo "hola mundo -- 20211036"
+      - name: Mensaje
+        run: echo "Hola mundo --20211036 !!!"
+        
+      - name: Touch file  # Crea el archivo
+        run: |
+          touch hola.txt
+          ls -al
+          
+      - name: Set text  # Agrega contenido al archivo
+        run: |
+          echo "Hola mundo 20211036" >> hola.txt
+          ls -al
+          
+      - name: Read file  # Lee el contenido del archivo
+        run: |
+          cat hola.txt
+
+  dos:
+    runs-on: ubuntu-latest
+    needs: [uno]  # "dos" depende de "uno"
+    steps:
+      - name: Listar directorio # Muestra los archivos en el directorio actual
+        run: ls -al
