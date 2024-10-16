@@ -38,3 +38,10 @@ jobs:
             
       - name: Listar directorio # Muestra los archivos en el directorio actual
         run: ls -al
+      - name: instalar
+        run :
+          cd .github/workflows
+          ls -al
+          # chmod +x script.sh
+          # ls -al 
+          # ./script.sh
